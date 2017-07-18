@@ -1,0 +1,199 @@
+/* ******************************************************************
+*****    footer                                            ******
+ ********************************************************************/
+footer{
+  position:sticky;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 3vh;
+  background:#E6E6E6;
+}
+/* ******************************************************************
+*****    Search bar                                            ******
+ ********************************************************************/
+#search{
+  margin:auto;
+  padding-top: 2vh;
+  display:flex;
+
+}
+form{
+  width: 80%;
+  display: flex;
+}
+label #advanced{
+  height:20vh;
+
+}
+/* ******************************************************************
+*****    TUTO PAGE                                             ******
+ ********************************************************************/
+
+
+#row2{
+  padding-top:1em;
+  width: 300vh;
+}
+#row3{
+  padding-top:2em;
+  width: 300vh;
+}
+#row4{
+  padding-top:2em;
+  width: 300vh;
+}
+#row5{
+  padding-top:2em;
+  padding-bottom: 2em;
+  width: 300vh;
+}
+#progress{
+  width:100%;
+
+}
+#prerequis{
+  border: 1px   solid black;
+}
+#description{
+  border: 1px   solid black;
+}
+#tag{
+  border: 1px   solid black;
+}
+#comment{
+  border: 1px   solid black;
+}
+/* ******************************************************************
+*****    TUTO card                                             ******
+ ********************************************************************/
+.card-product:hover .card-product-img-wrapper img {
+  -webkit-filter: grayscale(0);
+  filter: grayscale(1);
+}
+
+.card-product:hover .card-product-img-wrapper .button {
+  -webkit-transform: translateY(-3rem);
+  -ms-transform: translateY(-3rem);
+  transform: translateY(-3rem);
+}
+
+.card-product-img-wrapper {
+  margin-bottom: 1.375rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.card-product-img-wrapper .button {
+  transition: all 0.2s ease;
+  background-color: #767676;
+  padding: 1rem 0.5rem;
+  bottom: -3rem;
+  -webkit-transform: translateY(3rem);
+  -ms-transform: translateY(3rem);
+  transform: translateY(3rem);
+  position: absolute;
+  z-index: 2;
+  color: #fefefe;
+  margin-bottom: 0;
+}
+
+.card-product-img-wrapper .button:hover {
+  background-color: #1779ba;
+}
+
+.card-product-img-wrapper img {
+  transition: all 0.2s ease;
+  -webkit-filter: grayscale(0);
+  filter: grayscale(0);
+  max-width: 100%;
+}
+
+
+.card-product-img-wrapper .card-product-name {
+  font-size: 1.375rem;
+}
+
+.card-product-img-wrapper .card-product-price {
+  font-weight: bold;
+}
+
+.card-product-img-wrapper .card-product-description {
+  color: #8a8a8a;
+  font-size: 0.875rem;
+  margin-bottom: 0;
+
+
+}
+#wrapperslider{
+  margin:auto;
+
+
+}
+.orbit{
+  width:100%;
+  margin:auto;
+
+}
+#carroussel{
+  width:80vh;
+  height: 82.5vh;
+
+  max-width: 90%;
+}
+.card-section{
+  /*max-height: 40vh;*/
+
+}
+/* ******************************************************************
+*****    TUTO ADD                                            ******
+ ********************************************************************/
+main > form {
+  display: inherit;
+}
+#appbundle_tuto_description{
+  min-height: 37vh;
+}
+/* ******************************************************************
+*****    Register                                            ******
+ ********************************************************************/
+#registerForm{
+  padding-top: 5vh;
+  height: 80vh;
+}
+#registerTitle{
+  padding-top: 2vh;
+}
+/* ******************************************************************
+*****    Login                                            ******
+ ********************************************************************/
+#loginForm{
+  display: inherit;
+  padding-top: 5vh;
+
+}
+#loginDiv{
+  padding-top: 5vh;
+  height: 91vh;
+}
+#loginTitle{
+  width: 10%;
+  margin:auto;
+}
+/* ******************************************************************
+*****    Search result                                           ******
+ ********************************************************************/
+#result{
+  height:auto;
+}
+#result .card-section{
+  overflow-y: hidden;
+}
+#result .card-product{
+  /*min-width: 40vh;*/
+}
+#result .small-12 large-4 columns {
+  margin: 0 4%;
+}
+
+
