@@ -3,10 +3,33 @@
     <head>
         <meta charset="UTF-8" />
         <title>{% block title %}Welcome!{% endblock %}</title>
-        {% block stylesheets %}{% endblock %}
+        <link rel="stylesheet" href="{{ asset('css/foundation.css')}}">
+        <link rel="stylesheet" href="{{ asset('css/app.css')}}">
         <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
     </head>
     <body>
+
+    <header>
+        <div class="top-bar" id="main_menu" data-animate="hinge-in-from-top hinge-out-from-top">
+            <div class="top-bar-left">
+                <ul class="dropdown menu" data-dropdown-menu>
+                    <li class="menu-text">Athletic les 1000 pas!</li>
+                    {% block menuPrincipal %}
+
+
+                    {% if app.user %}
+                        <li><a href="{{ path('fos_user_security_logout') }}">Deconnexion</a></li>
+
+                    {% else %}
+                        <li><a href="{{ path('fos_user_security_login') }}">Connexion</a></li>
+                        <li><a href="{{ path('fos_user_registration_register') }}">Inscription</a></li>
+                    {% endif %}
+                    {% endblock %}
+                </ul>
+            </div>
+        </div>
+    </header>
+
         {% block body %}{% endblock %}
         {% block javascripts %}{% endblock %}
     </body>
