@@ -1,12 +1,5 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: devrok
- * Date: 18/07/17
- * Time: 10:24
- */
-
-
+// src/AppBundle/Entity/User.php
 
 namespace AppBundle\Entity;
 

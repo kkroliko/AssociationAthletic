@@ -1,159 +1,4 @@
-/* ******************************************************************
-*****    footer                                            ******
- ********************************************************************/
-footer{
-  position:sticky;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  height: 3vh;
-  background:#E6E6E6;
-}
-/* ******************************************************************
-*****    Search bar                                            ******
- ********************************************************************/
-#search{
-  margin:auto;
-  padding-top: 2vh;
-  display:flex;
 
-}
-form{
-  width: 80%;
-  display: flex;
-}
-label #advanced{
-  height:20vh;
-
-}
-/* ******************************************************************
-*****    TUTO PAGE                                             ******
- ********************************************************************/
-
-
-#row2{
-  padding-top:1em;
-  width: 300vh;
-}
-#row3{
-  padding-top:2em;
-  width: 300vh;
-}
-#row4{
-  padding-top:2em;
-  width: 300vh;
-}
-#row5{
-  padding-top:2em;
-  padding-bottom: 2em;
-  width: 300vh;
-}
-#progress{
-  width:100%;
-
-}
-#prerequis{
-  border: 1px   solid black;
-}
-#description{
-  border: 1px   solid black;
-}
-#tag{
-  border: 1px   solid black;
-}
-#comment{
-  border: 1px   solid black;
-}
-/* ******************************************************************
-*****    TUTO card                                             ******
- ********************************************************************/
-.card-product:hover .card-product-img-wrapper img {
-  -webkit-filter: grayscale(0);
-  filter: grayscale(1);
-}
-
-.card-product:hover .card-product-img-wrapper .button {
-  -webkit-transform: translateY(-3rem);
-  -ms-transform: translateY(-3rem);
-  transform: translateY(-3rem);
-}
-
-.card-product-img-wrapper {
-  margin-bottom: 1.375rem;
-  position: relative;
-  overflow: hidden;
-}
-
-.card-product-img-wrapper .button {
-  transition: all 0.2s ease;
-  background-color: #767676;
-  padding: 1rem 0.5rem;
-  bottom: -3rem;
-  -webkit-transform: translateY(3rem);
-  -ms-transform: translateY(3rem);
-  transform: translateY(3rem);
-  position: absolute;
-  z-index: 2;
-  color: #fefefe;
-  margin-bottom: 0;
-}
-
-.card-product-img-wrapper .button:hover {
-  background-color: #1779ba;
-}
-
-.card-product-img-wrapper img {
-  transition: all 0.2s ease;
-  -webkit-filter: grayscale(0);
-  filter: grayscale(0);
-  max-width: 100%;
-}
-
-
-.card-product-img-wrapper .card-product-name {
-  font-size: 1.375rem;
-}
-
-.card-product-img-wrapper .card-product-price {
-  font-weight: bold;
-}
-
-.card-product-img-wrapper .card-product-description {
-  color: #8a8a8a;
-  font-size: 0.875rem;
-  margin-bottom: 0;
-
-
-}
-#wrapperslider{
-  margin:auto;
-
-
-}
-.orbit{
-  width:100%;
-  margin:auto;
-
-}
-#carroussel{
-  width:80vh;
-  height: 82.5vh;
-
-  max-width: 90%;
-}
-.card-section{
-  /*max-height: 40vh;*/
-
-}
-/* ******************************************************************
-*****    TUTO ADD                                            ******
- ********************************************************************/
-main > form {
-  display: inherit;
-}
-#appbundle_tuto_description{
-  min-height: 37vh;
-}
 /* ******************************************************************
 *****    Register                                            ******
  ********************************************************************/
@@ -164,9 +9,19 @@ main > form {
 #registerTitle{
   padding-top: 2vh;
 }
+#registerDiv{
+  padding-top: 5vh;
+  height: 91vh;
+}
 /* ******************************************************************
 *****    Login                                            ******
  ********************************************************************/
+
+form{
+  width: 80%;
+  display: flex;
+}
+
 #loginForm{
   display: inherit;
   padding-top: 5vh;
@@ -180,20 +35,182 @@ main > form {
   width: 10%;
   margin:auto;
 }
-/* ******************************************************************
-*****    Search result                                           ******
- ********************************************************************/
-#result{
-  height:auto;
+
+/********************************************
+ FLIP CARD
+*************************************************/
+.flip-card {
+  -webkit-perspective: 100vh;
+  perspective: 100vh;
+  border: 0;
+  background: transparent;
 }
-#result .card-section{
-  overflow-y: hidden;
+
+.flip-card:hover .flip-card-inner,
+.flip-card.hover .flip-card-inner {
+  -webkit-transform: rotateY(180deg);
+  transform: rotateY(180deg);
 }
-#result .card-product{
-  /*min-width: 40vh;*/
+
+.flip-card,
+.flip-card-inner-front,
+.flip-card-inner-back {
+  width: 100%;
+  height: 20rem;
 }
-#result .small-12 large-4 columns {
-  margin: 0 4%;
+
+.flip-card-inner {
+  transition: 0.6s;
+  -webkit-transform-style: preserve-3d;
+  transform-style: preserve-3d;
+  position: relative;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
 }
+
+.flip-card-inner-front,
+.flip-card-inner-back {
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.flip-card-inner-front {
+  background: url(http://i.huffpost.com/gen/1823961/images/o-JOGGING-facebook.jpg) 0 0 no-repeat;
+  background-size:cover;
+  z-index: 2;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+}
+
+.flip-card-inner-front span {
+  width: 100%;
+  text-align: center;
+  background: rgba(254, 254, 254, 0.8);
+  padding: 0.25rem 0;
+  font-size: 1.25rem;
+  font-weight: bold;
+}
+
+.flip-card-inner-back {
+  -webkit-transform: rotateY(180deg);
+  transform: rotateY(180deg);
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  text-align: center;
+  background: #cacaca;
+  padding: 1rem;
+
+}
+
+.flip-card-inner-back-title {
+  font-weight: bold;
+}
+
+.flip-card-inner-back-text {
+  line-height: 1.3;
+}
+
+/***************************************************
+Bouton RS
+ *****************************************************/
+
+.social-icon-button {
+  border-radius: 3.6rem;
+  width: 3.6rem;
+  height: 3.6rem;
+  position: relative;
+  display: inline-block;
+  text-align: center;
+  font-size: 2rem;
+  background: none;
+}
+
+.social-icon-button + .social-icon-button {
+  margin-left: 0.25rem;
+}
+
+.social-icon-button .fa {
+  background: none;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  z-index: 1;
+  line-height: 3.6rem;
+  transition: all 0.3s ease-in-out;
+}
+
+.social-icon-button span {
+  display: block;
+  border-radius: 0;
+  width: 0;
+  height: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  transition: all 0.3s ease-in-out;
+}
+
+.social-icon-button:hover .fa {
+  color: #fefefe;
+}
+
+.social-icon-button:hover span {
+  display: block;
+  border-radius: 3.6rem;
+  width: 3.6rem;
+  height: 3.6rem;
+}
+
+.social-icon-button.gplus {
+  color: #dd4b39;
+}
+
+.social-icon-button.gplus span {
+  background-color: #dd4b39;
+}
+
+.social-icon-button.twitter {
+  color: #55acee;
+}
+
+.social-icon-button.twitter span {
+  background-color: #55acee;
+}
+
+.social-icon-button.facebook {
+  color: #3b5998;
+}
+
+.social-icon-button.facebook span {
+  background-color: #3b5998;
+}
+
+
 
 
