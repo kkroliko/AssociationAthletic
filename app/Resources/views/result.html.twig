@@ -10,24 +10,15 @@
                 <th>Temps</th>
                 <th>Resultat</th>
             </tr>
-            <tr>
-                <td>Jill</td>
-                <td>Smith</td>
-                <td>50</td>
-                <td>50</td>
-            </tr>
-            <tr>
-                <td>Eve</td>
-                <td>Jackson</td>
-                <td>94</td>
-                <td>94</td>
-            </tr>
-            <tr>
-                <td>Adam</td>
-                <td>Johnson</td>
-                <td>67</td>
-                <td>67</td>
-            </tr>
+
+    {% for result in athletes %}
+                <tr>
+                    <td>{{ result.athlete.firstname }}</td>
+                    <td>{{ result.athlete.lastname }}</td>
+                    <td>{{ result.time }}</td>
+                    <td>{{ result.points }}</td>
+                </tr>
+    {% endfor %}
         </table>
     </div>
 

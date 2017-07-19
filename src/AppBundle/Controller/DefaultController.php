@@ -19,14 +19,5 @@ class DefaultController extends Controller
         ]);
     }
 
-    /**
-     * @Route("/result", name="result")
-     */
-    public function testAction(Request $request)
-    {
-        // replace this example code with whatever you need
-        return $this->render('result.html.twig', []);
-
-    }
 
 }

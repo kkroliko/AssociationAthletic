@@ -260,9 +260,6 @@ th, td {
     -ms-transform: translateY(50%);
     transform: translateY(50%);
 
-
-
-
 }
 
 #f2 .flip-card-inner-front {
@@ -288,3 +285,4 @@ body{
 .table{
     padding-top: 5vh;
 }
+
