@@ -4,14 +4,24 @@
  ********************************************************************/
 #registerForm{
   padding-top: 5vh;
-  height: 80vh;
+  height: 50vh;
+    width: 80vh;
+    text-align: center;
+    margin-left: 13vh;
+
 }
 #registerTitle{
   padding-top: 2vh;
+    text-align: center;
 }
 #registerDiv{
-  padding-top: 5vh;
-  height: 91vh;
+  padding-top: 9vh;
+  height: 950vh;
+    text-align: center;
+}
+#registerRow{
+    margin-top: 5vh;
+    text-align: center;
 }
 /* ******************************************************************
     Login
@@ -91,6 +101,7 @@ form{
   -ms-flex-pack: center;
   justify-content: center;
 }
+
 
 .flip-card-inner-front span {
   width: 100%;
@@ -221,7 +232,7 @@ slider
     width: 10%;
 }
 
-h1{
+h1,h3{
     text-align: center;
 }
 footer{
@@ -254,3 +265,26 @@ th, td {
 
 }
 
+#f2 .flip-card-inner-front {
+    background: url(http://rdsimages.cookieless.ca/polopoly_fs/1.4368147.1487590296!/img/httpImage/image.jpg) 0 0 no-repeat;
+}
+
+#f3 .flip-card-inner-front {
+    background: url(https://st.depositphotos.com/2069237/2819/i/950/depositphotos_28193181-stock-photo-female-running-athlete-woman-trail.jpg) 0 0 no-repeat;
+}
+#f4 .flip-card-inner-front {
+    background: url(https://www.pepsup.com/resources/images/ARTICLES/000/000/189/1896/IMAGE/1896.jpg?1485785044000) 0 0 no-repeat;
+}
+#f5 .flip-card-inner-front {
+    background: url(http://www.bretagne.com/var/plain/storage/images/les_photos_de_bretagne/paysages/gr34_cote_le_diben/770694-1-fre-FR/gr34_cote_le_diben.jpg) 0 0 no-repeat;
+}
+
+body{
+    background: url("../img/bg.jpg") no-repeat center fixed;
+
+
+}
+
+.table{
+    padding-top: 5vh;
+}

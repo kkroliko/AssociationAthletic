@@ -1,12 +1,11 @@
 {% extends 'base.html.twig' %}
 
 {% block main %}
-
+    <!--------------------------------------------- Présentation ----------------------------------------------->
     <h1>L'association Athletic</h1>
-
     <div class="container">
-<div class="card-panel">
-    <div class="row">
+        <div class="card-panel">
+             <div class="row">
         <div>
             <div class="col s5 m1 l2">
                 <img class="responsive-img" src="../img/runner.png"></div>
@@ -20,9 +19,13 @@
                 </div>
             </div>
         </div>
+             </div>
+        </div>
     </div>
-</div>
-    </div>
+
+
+
+    <!--------------------------------------------- Slider ----------------------------------------------->
 <div class="row">
     <div class="fullscreen-image-slider">
         <div class="orbit" role="region" aria-label="FullScreen Pictures" data-orbit>
@@ -49,11 +52,40 @@
         </div>
     </div>
 </div>
+<br>
+
+    <!--------------------------------------------- Prochaines courses ----------------------------------------------->
+
+
+    <div class="container">
+        <div class="card-panel">
+            <div class="row">
+                <div>
+                    <div class="col s12 m8 l9">
+                        <div class="card" style="background-color:#F5F7F8 ">
+                            <div class="card-content grey-text">
+                                <h3 class="card-title">Prochaines courses</h3>
+                                <p>e Lorem Ipsum est simplement du faux texte employé dans la composition et la mise en page avant impression. Le Lorem Ipsum est le faux texte standard de l'imprimerie depuis les années 1500, quand un peintre anonyme assembla ensemble des morceaux de texte pour réaliser un livre spécimen de polices de texte. Il n'a pas fait que survivre cinq siècles, mais s'est aussi adapté à la bureautique informatique, sans que son contenu n'en soit modifié. Il a été popularisé dans les année
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
 
 
 <br>
-
+<!--------------------------------------------- Flipcard ----------------------------------------------->
     <div class="row">
+
+        <div class="large-12 small-12 column" id="f1">
                 <div class="flip-card card" ontouchstart="this.classList.toggle('hover');">
                     <div class="flip-card-inner">
                         <div class="flip-card-inner-front">
@@ -62,16 +94,17 @@
                         <div class="flip-card-inner-back">
                             <h3 class="flip-card-inner-back-title">La Course de l'afpa</h3>
                             <p class="flip-card-inner-back-text">Le Gagnant de la grande course de plus de 1000pas est Konrad</p>
-                            <a href="#" class="button success">Résultat de la course</a> <a href="#" class="button success">Classement</a>
+                            <a href="#" class="button success">Résultat de la course</a>
+                            <a href="#" class="button success">Classement</a>
                         </div>
                     </div>
                 </div>
     </div>
-    <div class="row">
+    <div class="large-3 small-12 column" id="f2">
         <div class="flip-card card" ontouchstart="this.classList.toggle('hover');">
             <div class="flip-card-inner">
                 <div class="flip-card-inner-front">
-                    <span>Corrida de Plouescat</span>
+                    <span>Trail du Tertre Gris</span>
                 </div>
                 <div class="flip-card-inner-back">
                     <h3 class="flip-card-inner-back-title">La Course de l'afpa</h3>
@@ -81,8 +114,53 @@
             </div>
         </div>
     </div>
+        <div class="large-3 small-12 column" id="f3">
+            <div class="flip-card card" ontouchstart="this.classList.toggle('hover');">
+                <div class="flip-card-inner">
+                    <div class="flip-card-inner-front">
+                        <span>La Forêt Fouesnant - Challenge Penn Ar Bed</span>
+                    </div>
+                    <div class="flip-card-inner-back">
+                        <h3 class="flip-card-inner-back-title">La Course de l'afpa</h3>
+                        <p class="flip-card-inner-back-text">Le Gagnant de la grande course de plus de 1000pas est Konrad</p>
+                        <a href="#" class="button success">Résultat de la course</a>
+                        <a href="#" class="button success">Classement</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="large-3 small-12 column" id="f4">
+            <div class="flip-card card" ontouchstart="this.classList.toggle('hover');">
+                <div class="flip-card-inner">
+                    <div class="flip-card-inner-front">
+                        <span>Trail Du Bout Du Monde</span>
+                    </div>
+                    <div class="flip-card-inner-back">
+                        <h3 class="flip-card-inner-back-title">La Course de l'afpa</h3>
+                        <p class="flip-card-inner-back-text">Le Gagnant de la grande course de plus de 1000pas est Konrad</p>
+                        <a href="#" class="button success">Résultat de la course</a> <a href="#" class="button success">Classement</a>
+                    </div>
+                </div>
+            </div>
+        </div>
 
+        <div class="large-3 small-12 column" id="f5">
+            <div class="flip-card card" ontouchstart="this.classList.toggle('hover');">
+                <div class="flip-card-inner">
+                    <div class="flip-card-inner-front">
+                        <span>Foulées ercéennes</span>
+                    </div>
+                    <div class="flip-card-inner-back">
+                        <h3 class="flip-card-inner-back-title">La Course de l'afpa</h3>
+                        <p class="flip-card-inner-back-text">Le Gagnant de la grande course de plus de 1000pas est Konrad</p>
+                        <a href="#" class="button success">Résultat de la course</a>
+                        <a href="#" class="button success">Classement</a>
+                    </div>
+                </div>
+            </div>
+        </div>
 
+    </div>
 
 {% endblock %}
 
