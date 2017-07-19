@@ -1,6 +1,6 @@
 
 /* ******************************************************************
-*****    Register                                            ******
+  Register
  ********************************************************************/
 #registerForm{
   padding-top: 5vh;
@@ -14,7 +14,7 @@
   height: 91vh;
 }
 /* ******************************************************************
-*****    Login                                            ******
+    Login
  ********************************************************************/
 
 form{
@@ -131,7 +131,7 @@ form{
 }
 
 /***************************************************
-Bouton RS
+Bouton ReseauSociaux
  *****************************************************/
 
 .social-icon-button {
@@ -211,6 +211,46 @@ Bouton RS
   background-color: #3b5998;
 }
 
+/***********************
+slider
+ *********/
 
 
+.responsive-img{
+
+    width: 10%;
+}
+
+h1{
+    text-align: center;
+}
+footer{
+
+    text-align: right;
+}
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+    width: 100%;
+    border: 1px solid #ddd;
+}
+
+th, td {
+    border: none;
+    text-align: left;
+    padding: 8px;
+}
+
+/*Slider*/
+
+.fullscreen-image-slider .orbit-caption {
+    bottom: 10%;
+    -webkit-transform: translateY(50%);
+    -ms-transform: translateY(50%);
+    transform: translateY(50%);
+
+
+
+
+}
 

@@ -2,22 +2,24 @@
 <html>
     <head>
         <meta charset="UTF-8" />
-        <title>{% block title %}Welcome!{% endblock %}</title>
+        <title>{% block title %}Athletic les 1000 pas!{% endblock %}</title>
         <link rel="stylesheet" href="{{ asset('css/foundation.css')}}">
         <link rel="stylesheet" href="{{ asset('css/app.css')}}">
         <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
     </head>
     <body>
-
+    {% block menuPrincipal %}
     <header>
         <div class="top-bar" id="main_menu" data-animate="hinge-in-from-top hinge-out-from-top">
             <div class="top-bar-left">
                 <ul class="dropdown menu" data-dropdown-menu>
                     <li class="menu-text">Athletic les 1000 pas!</li>
-                    {% block menuPrincipal %}
 
+                        <li><a href="{{ path('homepage') }}">Accueil</a></li>
+                        <li><a href="{{ path('result') }}">Résultat</a></li>
 
                     {% if app.user %}
+
                         <li><a href="{{ path('fos_user_security_logout') }}">Deconnexion</a></li>
 
                     {% else %}
@@ -32,30 +34,12 @@
 
         {% block main %}{% endblock %}
     <footer>
-<div
-        <h4>Follow us!</h4>
-        <div class="clearfix"></div>
-        <a href="#" class="button social facebook">
-            <i class="fa fa-facebook" aria-hidden="true"></i> Facebook
-        </a>
-        <a href="#" class="button social twitter">
-            <i class="fa fa-twitter" aria-hidden="true"></i> Twitter
-        </a>
-
-        <a href="#" class="button social youtube">
-            <i class="fa fa-youtube" aria-hidden="true"></i> Youtube
-        </a>
-        <a href="#" class="button social instagram">
-            <i class="fa fa-instagram" aria-hidden="true"></i> Instagram
-        </a>
-        <a href="#" class="button social google-plus">
-            <i class="fa fa-google-plus" aria-hidden="true"></i> Google +
-        </a>
-        <a href="#" class="button social github">
-            <i class="fa fa-github" aria-hidden="true"></i> Github
-        </a>
-
-
+        <div class="footer-copyright">
+            <div class="container">
+                <div class="clearfix"></div>
+                <a class="black-text text-lighten-4 right" href="#!">© 2017 Copyright</a>
+            </div>
+        </div>
 
 
 
