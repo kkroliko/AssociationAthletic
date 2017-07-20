@@ -187,8 +187,6 @@ th, td {
 /**********************************************************************************************************************/
 body{
     background: url("../img/bg.jpg") no-repeat center fixed;
-
-
 }
 
 .table{
@@ -199,3 +197,7 @@ body{
 h1{
   background: white;
 }
+.hidden {
+    display: none;
+}
+

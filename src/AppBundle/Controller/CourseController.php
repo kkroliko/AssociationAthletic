@@ -7,19 +7,30 @@ use AppBundle\AppBundle;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
-
+use Doctrine\DBAL\Types\Type;
+use DateTime;
 class CourseController extends Controller
 {
     /**
      * @Route("/result", name="result")
      */
+
     public function ResultatCourseAction( Request $request)
     {
         $em = $this->getDoctrine()->getManager();
-        $meetingName = $em->getRepository("AppBundle:Meeting")->findAll();
-        $repository=$em->getRepository("AppBundle:Result");
-        $athletes = $repository->findBy( array('meeting'=> '1'), array('points'=>'DESC'));
-        return $this->render('result.html.twig',['result'=>$meetingName, 'athletes'=>$athletes]);
+
+        $query_meetings = $em->createQuery('SELECT m
+                                            FROM AppBundle:Meeting m
+                                            WHERE m.date < :now
+                                           ')->setParameter("now", new DateTime("NOW"), Type::DATETIME);
+        $finished_meetings = $query_meetings->getResult();
+
+        $query_results = $em->createQuery('SELECT r FROM AppBundle:Result r ORDER by r.points DESC');
+        $results_meetings = $query_results->getResult();
+
+
+        return $this->render('result.html.twig',['results'=>$results_meetings, 'meetings'=>$finished_meetings]);
+
     }
 
     /**
@@ -27,8 +38,7 @@ class CourseController extends Controller
      */
     public function ClassementAction(Request $request)
     {
-        // replace this example code with whatever you need
         return $this->render('classement.html.twig');
-
     }
+
 }

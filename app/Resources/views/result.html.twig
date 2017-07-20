@@ -1,17 +1,15 @@
 {% extends 'base.html.twig' %}
 
 {% block main %}
-    {% for meeting in result %}
 
+    <select class="selectresult"name="select" size="1">
+        {% for meeting in meetings %}
+            <option value={{ meeting.id }}>{{ meeting.name }}</option>
+        {% endfor %}
+    </select>
 
-        <form>
-            <select name="select" size="1">
-                <option>{{ meeting.name }}
-            </select>
-        </form>
-
-    {% endfor %}
-    <div class="table" style="overflow-x:auto;">
+    {% for meeting in meetings %}
+    <div id="{{ meeting.id }}" class="table hidden" style="overflow-x:auto;">
         <table>
             <tr>
                 <th>Prenom</th>
@@ -20,7 +18,7 @@
                 <th>Resultat</th>
             </tr>
 
-    {% for result in athletes %}
+            {% for result in results if result.meeting.id == meeting.id %}
 
                 <tr>
                     <td>{{ result.athlete.firstname }}</td>
@@ -28,10 +26,14 @@
                     <td>{{ result.time }}</td>
                     <td>{{ result.points }}</td>
                 </tr>
-    {% endfor %}
+            {% endfor %}
         </table>
     </div>
+    {% endfor %}
+
 
 
 {% endblock %}
+
+
 

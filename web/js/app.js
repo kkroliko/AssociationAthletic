@@ -56,9 +56,23 @@ $("#appbundle_tuto_mainTag").change(function() {
 })
 $(document).ready(function(){
     $('.slider3').bxSlider({
-        slideWidth: 5000,
+        slideWidth: 3000,
         minSlides: 2,
         maxSlides: 4,
         slideMargin: 10
+    });
+
+    $(document).on("change", ".selectresult", function() {
+        $selected = "#" + $(this).val();
+        $(".table").not($selected).each(function() {
+            if ($(".table").hasClass("active")) {
+                $(".table").removeClass("active");
+                $(".table").slideUp("100");
+            }
+        });
+        $selected = "#" + $(this).val();
+        $($selected).addClass("active");
+        $($selected).slideDown("1500");
+        $()
     });
 });
