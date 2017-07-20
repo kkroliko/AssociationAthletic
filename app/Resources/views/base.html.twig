@@ -2,37 +2,40 @@
 <html>
     <head>
         <meta charset="UTF-8" />
-        <title>{% block title %}Athletic les 1000 pas!{% endblock %}</title>
+        <title>{% block title %}Athletik les 1000 pas!{% endblock %}</title>
         <link rel="stylesheet" href="{{ asset('css/foundation.css')}}">
         <link rel="stylesheet" href="{{ asset('css/app.css')}}">
         <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
     </head>
     <body>
-    {% block menuPrincipal %}
+    <!-------------------------------------------------MENU PRINCIPAL------------------------------------------------->
     <header>
         <div class="top-bar" id="main_menu" data-animate="hinge-in-from-top hinge-out-from-top">
             <div class="top-bar-left">
                 <ul class="dropdown menu" data-dropdown-menu>
-                    <li class="menu-text">Athletic les 1000 pas!</li>
+                    <li class="menu-text">Athletik les 1000 pas!</li>
 
                         <li><a href="{{ path('homepage') }}">Accueil</a></li>
-                        <li><a href="{{ path('result') }}">Résultat</a></li>
+                        <li><a href="{{ path('classement') }}">Classement général</a></li>
+                        <li><a href="{{ path('result') }}">Résultat des courses</a></li>
 
                     {% if app.user %}
 
                         <li><a href="{{ path('fos_user_security_logout') }}">Deconnexion</a></li>
 
                     {% else %}
+
                         <li><a href="{{ path('fos_user_security_login') }}">Connexion</a></li>
                         <li><a href="{{ path('fos_user_registration_register') }}">Inscription</a></li>
+
                     {% endif %}
-                    {% endblock %}
                 </ul>
             </div>
         </div>
     </header>
-
+    <!----------------------------------------------------------------------------------------------------------------->
         {% block main %}{% endblock %}
+    <!-------------------------------------------FOOTER---------------------------------------------------------------->
     <footer>
         <div class="footer-copyright">
             <div class="container">
@@ -40,17 +43,12 @@
                 <a class="black-text text-lighten-4 right" href="#!">© 2017 Copyright</a>
             </div>
         </div>
-
-
-
     </footer>
+    <!----------------------------------------------------------------------------------------------------------------->
 
-
-
-
-    <script src="{{ asset('js/vendor/jquery.js')}}"></script>
-    <script src="{{ asset('js/vendor/what-input.js')}}"></script>
-    <script src="{{ asset('js/vendor/foundation.js')}}"></script>
-    <script src="{{ asset('js/app.js')}}"></script>
+        <script src="{{ asset('js/vendor/jquery.js')}}"></script>
+        <script src="{{ asset('js/vendor/what-input.js')}}"></script>
+        <script src="{{ asset('js/vendor/foundation.js')}}"></script>
+        <script src="{{ asset('js/app.js')}}"></script>
     </body>
 </html>

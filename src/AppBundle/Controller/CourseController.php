@@ -21,4 +21,14 @@ class CourseController extends Controller
         $athletes = $repository->findBy( array('meeting'=> '1'), array('points'=>'DESC'));
         return $this->render('result.html.twig',['result'=>$meetingName, 'athletes'=>$athletes]);
     }
+
+    /**
+     * @Route("/classement", name="classement")
+     */
+    public function ClassementAction(Request $request)
+    {
+        // replace this example code with whatever you need
+        return $this->render('classement.html.twig');
+
+    }
 }
