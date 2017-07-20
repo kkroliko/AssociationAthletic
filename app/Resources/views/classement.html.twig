@@ -1,7 +1,22 @@
 {% extends 'base.html.twig' %}
 
 {% block main %}
-dd
+    <div class="table" style="overflow-x:auto;">
+        <table>
+            <tr>
+                <th>Prenom</th>
+                <th>Nom</th>
+                <th>Total des points</th>
+            </tr>
 
+            {% for result in classement  %}
 
+                <tr>
+                    <td>{{ result.firstname }}</td>
+                    <td>{{ result.lastname }}</td>
+                    <td>{{ result.total }}</td>
+                </tr>
+            {% endfor %}
+        </table>
+    </div>
 {% endblock %}

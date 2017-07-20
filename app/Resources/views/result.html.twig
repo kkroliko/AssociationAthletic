@@ -3,6 +3,7 @@
 {% block main %}
 
     <select class="selectresult"name="select" size="1">
+        <option value="0">Veuillez selectionner une course</option>
         {% for meeting in meetings %}
             <option value={{ meeting.id }}>{{ meeting.name }}</option>
         {% endfor %}
@@ -10,12 +11,13 @@
 
     {% for meeting in meetings %}
     <div id="{{ meeting.id }}" class="table hidden" style="overflow-x:auto;">
-        <table>
+        <div class="large-12 small-2 column">
+        <table >
             <tr>
                 <th>Prenom</th>
                 <th>Nom</th>
                 <th>Temps</th>
-                <th>Resultat</th>
+                <th>Points</th>
             </tr>
 
             {% for result in results if result.meeting.id == meeting.id %}
@@ -28,6 +30,7 @@
                 </tr>
             {% endfor %}
         </table>
+        </div>
     </div>
     {% endfor %}
 

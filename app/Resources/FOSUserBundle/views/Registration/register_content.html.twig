@@ -1,22 +1,18 @@
 {% trans_default_domain 'FOSUserBundle' %}
 
-<div class="container">
+<div id="test" class="container">
     <div class="card-panel">
-        <div class="row" id="registerRow">
+        <div class="row" id="Row">
                 <div class="large-6 large-offset-3 small-12 column">
                     <div class="card" style="background-color:#F5F7F8 ">
                         <div class="card-content grey-text">
-                            <div id="registerTitle">
                                 <h1>Inscription</h1>
-                            </div>
                         </div>
-                        <div class="large-6 small-12 column">
-                            <div id="registerForm">
+                        <div class="large-6 large-offset-3 small-12 column">
                                     {{ form_start(form, {'method': 'post', 'action': path('fos_user_registration_register'), 'attr': {'class': 'fos_user_registration_register'}}) }}
                                     {{ form_widget(form) }}
-                            </div>
                         </div>
-                        <div class="large-6 small-12 column">
+                        <div class="large-6  large-offset-3 small-12 column">
                                     <input type="submit" value="{{ 'registration.submit'|trans }}" />
                                     {{ form_end(form) }}
                         </div>

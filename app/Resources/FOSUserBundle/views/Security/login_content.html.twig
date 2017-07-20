@@ -1,43 +1,54 @@
 {% trans_default_domain 'FOSUserBundle' %}
+<div id="test" class="container">
+    <div class="card-panel">
+        <div class="row" id="Row">
+            <div class="large-6 large-offset-3 small-12 column">
+                <div class="card" style="background-color:#F5F7F8 ">
+                    <div class="card-content grey-text">
+                        <h1>Connection</h1>
 
+                        {% if error %}
+                        <div>{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+                        {% endif %}
 
-            <div id="loginDiv">
+                        <form action="{{ path("fos_user_security_check") }}" method="post">
 
-                <h1 id="loginTitle">Connection</h1>
-                {% if error %}
-                    <div>{{ error.messageKey|trans(error.messageData, 'security') }}</div>
-                {% endif %}
+                            {% if csrf_token %}
+                                <input type="hidden" name="_csrf_token" value="{{ csrf_token }}" />
+                            {% endif %}
 
-                <form id="loginForm" action="{{ path("fos_user_security_check") }}" method="post">
-                    {% if csrf_token %}
-                        <input type="hidden" name="_csrf_token" value="{{ csrf_token }}" />
-                    {% endif %}
+                            <div class="row">
+                                <div class="large-6 large-offset-3 small-12 column">
+                                    <label for="username">{{ 'security.login.username'|trans }}</label>
+                                    <input type="text" id="username" name="_username" value="{{ last_username }}" required="required" />
+                                </div>
+                            </div>
 
-                    <div class="row">
-                        <div class="large-8 columns large-offset-4">
-                            <label for="username">{{ 'security.login.username'|trans }}</label>
-                            <input type="text" id="username" name="_username" value="{{ last_username }}" required="required" />
-                        </div>
+                            <div class="row">
+                                <div class="large-6 large-offset-3 small-12 column">
+                                    <label for="password">{{ 'security.login.password'|trans }}</label>
+                                    <input type="password" id="password" name="_password" required="required" />
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="large-6 large-offset-3 small-12 column">
+                                    <input type="checkbox" id="remember_me" name="_remember_me" value="on" />
+                                    <label for="remember_me">{{ 'security.login.remember_me'|trans }}</label>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="large-6 large-offset-3 small-12 column">
+                                    <input type="submit" id="_submit" name="_submit" value="{{ 'security.login.submit'|trans }}" />
+                                </div>
+                            </div>
+
+                        </form>
                     </div>
-                    <div class="row">
-                        <div class="large-8 columns large-offset-4">
-                            <label for="password">{{ 'security.login.password'|trans }}</label>
-                            <input type="password" id="password" name="_password" required="required" />
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="large-8 columns large-offset-4">
-                            <input type="checkbox" id="remember_me" name="_remember_me" value="on" />
-                            <label for="remember_me">{{ 'security.login.remember_me'|trans }}</label>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="large-2 columns large-offset-11">
-                            <input type="submit" id="_submit" name="_submit" value="{{ 'security.login.submit'|trans }}" />
-                        </div>
-                    </div>
-                </form>
+                </div>
             </div>
+        </div>
     </div>
 </div>
 

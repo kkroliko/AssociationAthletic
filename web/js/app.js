@@ -56,7 +56,7 @@ $("#appbundle_tuto_mainTag").change(function() {
 })
 $(document).ready(function(){
     $('.slider3').bxSlider({
-        slideWidth: 3000,
+        slideWidth: 1000,
         minSlides: 2,
         maxSlides: 4,
         slideMargin: 10
