@@ -8,16 +8,17 @@
             <option value={{ meeting.id }}>{{ meeting.name }}</option>
         {% endfor %}
     </select>
-
+        <div class="row">
     {% for meeting in meetings %}
+
     <div id="{{ meeting.id }}" class="table hidden" style="overflow-x:auto;">
-        <div class="large-12 small-2 column">
-        <table >
+
+        <table>
             <tr>
-                <th>Prenom</th>
-                <th>Nom</th>
-                <th>Temps</th>
-                <th>Points</th>
+                <th width="200">Prenom</th>
+                <th width="200">Nom</th>
+                <th width="150">Temps</th>
+                <th width="150">Points</th>
             </tr>
 
             {% for result in results if result.meeting.id == meeting.id %}
@@ -29,9 +30,11 @@
                     <td>{{ result.points }}</td>
                 </tr>
             {% endfor %}
+
         </table>
-        </div>
+
     </div>
+        </div>
     {% endfor %}
 
 
