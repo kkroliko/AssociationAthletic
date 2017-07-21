@@ -3,8 +3,28 @@
 {% trans_default_domain 'FOSUserBundle' %}
 
 {% block fos_user_content %}
-    <p>{{ 'registration.confirmed'|trans({'%username%': user.username}) }}</p>
+
+<div class="container">
+    <div class="card-panel">
+        <div class="row" id="Row">
+            <div class="large-6 large-offset-3 small-12 column">
+                <div class="card" style="background-color:#F5F7F8 ">
+                    <div class="card-content grey-text">
+                         <h1>Bienvenu(e)</h1>
+                    </div>
+                        <div class="large-6 large-offset-3 small-12 column">
+                            <p>{{ 'registration.confirmed'|trans({'%username%': user.username}) }}</p>
+                        </div>
+                            <a href="{{ path('homepage') }}">Revenir à l'accueil</a>
     {% if targetUrl %}
-    <p><a href="{{ targetUrl }}">{{ 'registration.back'|trans }}</a></p>
+                        <div class="large-6 large-offset-3 small-12 column">
+                            <p><a href="{{ targetUrl }}">{{ 'registration.back'|trans }}</a></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
     {% endif %}
 {% endblock fos_user_content %}

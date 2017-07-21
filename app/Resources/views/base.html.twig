@@ -10,6 +10,7 @@
     </head>
     <body>
     <!-------------------------------------------------MENU PRINCIPAL------------------------------------------------->
+    <div class="bg"></div>
     <header>
         <div class="top-bar" id="main_menu" data-animate="hinge-in-from-top hinge-out-from-top">
             <div class="top-bar-left">
@@ -23,11 +24,16 @@
                     {% if app.user %}
 
                         <li><a href="{{ path('fos_user_security_logout') }}">Deconnexion</a></li>
-
+                        <li class="row" id="lico" >{{ 'layout.logged_in_as'|trans({'%username%': app.user.username}, 'FOSUserBundle') }}</li>
                     {% else %}
 
                         <li><a href="{{ path('fos_user_security_login') }}">Connexion</a></li>
                         <li><a href="{{ path('fos_user_registration_register') }}">Inscription</a></li>
+                        <li class="row" class="lico">Vous n'êtes pas connecté</li>
+                    {% endif %}
+
+                    {% if is_granted('ROLE_ADMIN') %}
+                        <li><a href="{{ path('fos_user_registration_register') }}">Igrsgsgrption</a></li>
 
                     {% endif %}
                 </ul>
