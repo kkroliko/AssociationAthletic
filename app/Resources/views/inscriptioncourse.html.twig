@@ -1,0 +1,21 @@
+{% extends 'base.html.twig' %}
+
+{% block main %}
+
+{%  for meeting in meetings %}
+        <div id="test" class="container">
+            <div class="card-panel">
+                <div class="row" id="Row">
+                    <div class="large-6 large-offset-3 small-12 column">
+                        <div class="card" style="background-color:#F5F7F8 ">
+                            <div class="card-content grey-text">
+                                <h2>{{ meeting.name }}</h2>
+                                <a id="{{ meeting.id }}" href="{{ path('courseregistered', {"id" : meeting.id}) }}">S'inscire à cette course</a>
+                             </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+{%  endfor %}
+{% endblock %}

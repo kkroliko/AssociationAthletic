@@ -15,14 +15,14 @@
         <div class="top-bar" id="main_menu" data-animate="hinge-in-from-top hinge-out-from-top">
             <div class="top-bar-left">
                 <ul class="dropdown menu" data-dropdown-menu >
-                    <li class="menu-text">Athletik les 1000 pas!</li>
+                    <h5><li class="menu" ><a href="{{ path('homepage') }}">Athletik les 1000pas!</a></li></h5>
 
-                        <li><a href="{{ path('homepage') }}">Accueil</a></li>
+
                         <li><a href="{{ path('classement') }}">Classement général</a></li>
                         <li><a href="{{ path('result') }}">Résultat des courses</a></li>
 
                     {% if app.user %}
-
+                        <li><a href="{{ path('courseregister') }}">S'inscrire à la course</a></li>
                         <li><a href="{{ path('fos_user_security_logout') }}">Deconnexion</a></li>
                         <li class="row" id="lico" >{{ 'layout.logged_in_as'|trans({'%username%': app.user.username}, 'FOSUserBundle') }}</li>
                     {% else %}

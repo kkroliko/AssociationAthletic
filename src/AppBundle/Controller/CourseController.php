@@ -25,11 +25,7 @@ class CourseController extends Controller
     {
         $em = $this->getDoctrine()->getManager();
 
-        $query_meetings = $em->createQuery('SELECT m
-                                            FROM AppBundle:Meeting m
-                                            WHERE m.date < :now
-                                           ')->setParameter("now", new DateTime("NOW"), Type::DATETIME);
-        $finished_meetings = $query_meetings->getResult();
+        $finished_meetings = $this->getDoctrine()->getRepository(Meeting::class)->findAll();
 
         $query_results = $em->createQuery('SELECT r FROM AppBundle:Result r ORDER by r.points DESC');
         $results_meetings = $query_results->getResult();
@@ -67,10 +63,86 @@ class CourseController extends Controller
             $em = $this->getDoctrine()->getManager();
             $em->persist($course);
             $em->flush();
-            return $this->render('/default/index.html.twig');
+            return $this->render('default/index.html.twig');
+
         }
         return $this->render('newcourse.html.twig', [
             'MeetingType'=>$form->createView()
         ]);
     }
+    /**
+     * @route("/newathlete/", name="newathlete")
+     * @method({"POST"})
+     */
+    public function newAthleteAction(Request $request){
+        $coureur = new Athlete();
+        $form = $this ->createForm(AthleteType::class, $coureur);
+        $form->handleRequest($request);
+        if ($form->isSubmitted() && $form->isValid()){
+            $em = $this->getDoctrine()->getManager();
+            $em->persist($coureur);
+            $em->flush();
+            return $this->render('default/index.html.twig');
+        }
+        return $this->render('newathlete.html.twig', [
+            'AtheteType'=>$form->createView()
+        ]);
+    }
+    /**
+     * @Route("/inscriptioncourse/", name="courseregister")
+     */
+    public function inscriptionCourseAction( Request $request)
+    {
+        $em = $this->getDoctrine()->getManager();
+
+        $query_meetings = $em->createQuery('SELECT m
+                                            FROM AppBundle:Meeting m
+                                            WHERE m.date > :now
+                                           ')->setParameter("now", new DateTime("NOW"), Type::DATETIME);
+        $finished_meetings = $query_meetings->getResult();
+
+        $query_results = $em->createQuery('SELECT r FROM AppBundle:Result r ORDER by r.points DESC');
+        $results_meetings = $query_results->getResult();
+
+
+        return $this->render('inscriptioncourse.html.twig',['meetings'=>$finished_meetings]);
+
+
+    }
+    /**
+     * @Route("/inscriptioncourse/{id}", name="courseregistered")
+     */
+    public function inscriptionCourseConfirmationAction(Request $request, $id)
+    {
+        $coureur = new Athlete();
+        $form = $this ->createForm(AthleteType::class, $coureur);
+        $form->handleRequest($request);
+        if ($form->isSubmitted() && $form->isValid()){
+
+            $firstname = $form['firstname']->getData();
+            $lastname = $form['lastname']->getData();
+
+            $runner = $this->getDoctrine()->getRepository(Athlete::class)->findOneBy(['firstname' => $firstname, 'lastname' => $lastname]);
+
+            $result = new Result();
+            $meeting = $this->getDoctrine()->getRepository(Meeting::class)->findOneBy(['id' => $id]);
+            $result->setMeeting($meeting);
+            $result->setPoints(0);
+            $result->setTime(0);
+
+            $em = $this->getDoctrine()->getManager();
+
+            if(!$runner) {
+                $result->setAthlete($coureur);
+                $em->persist($coureur);
+            } else $result->setAthlete($runner);
+            $em->persist($result);
+            $em->flush();
+            return $this->render('default/index.html.twig');
+        }
+        return $this->render('newathlete.html.twig', [
+            'AtheteType'=>$form->createView()
+        ]);
+    }
+
 }

@@ -5,6 +5,8 @@ namespace AppBundle\Form;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
+use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 
 class AthleteType extends AbstractType
 {
@@ -15,7 +17,9 @@ class AthleteType extends AbstractType
     {
         $builder->add('firstname')
                 ->add('lastname')
-                ->add('birthdate');
+                ->add('birthdate')
+                ->add('submit', SubmitType::class, array(
+        'attr' => array('class' => 'hollow button')));
     }
     
     /**

@@ -19,6 +19,8 @@
                 <th width="200">Nom</th>
                 <th width="150">Temps</th>
                 <th width="150">Points</th>
+
+
             </tr>
 
             {% for result in results if result.meeting.id == meeting.id %}
@@ -26,9 +28,15 @@
                 <tr>
                     <td>{{ result.athlete.firstname }}</td>
                     <td>{{ result.athlete.lastname }}</td>
+                    {% if is_granted('ROLE_ADMIN') %}
+                        <td><input class="time" type="number"></td>
+                        <td><input type="number"></td>
+                        <input type="submit">
+                    {% else %}
                     <td>{{ result.time }}</td>
                     <td>{{ result.points }}</td>
                 </tr>
+            {% endif %}
             {% endfor %}
 
         </table>
