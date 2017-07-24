@@ -7,6 +7,12 @@ use AppBundle\AppBundle;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
+use AppBundle\Form\MeetingType;
+use AppBundle\Form\AthleteType;
+use AppBundle\Form\ResultType;
+use AppBundle\Entity\Athlete;
+use AppBundle\Entity\Result;
+use AppBundle\Entity\Meeting;
 use Doctrine\DBAL\Types\Type;
 use DateTime;
 class CourseController extends Controller
@@ -48,4 +54,23 @@ class CourseController extends Controller
         return $this->render('classement.html.twig' , ['classement'=>$resultat]);
     }
 
+
+    /**
+     * @route("/newcourse/", name="newcourse")
+     * @method({"POST"})
+     */
+    public function newCourseAction(Request $request){
+        $course = new Meeting();
+        $form = $this ->createForm(MeetingType::class, $course);
+        $form->handleRequest($request);
+        if ($form->isSubmitted() && $form->isValid()){
+            $em = $this->getDoctrine()->getManager();
+            $em->persist($course);
+            $em->flush();
+            return $this->render('/default/index.html.twig');
+        }
+        return $this->render('newcourse.html.twig', [
+            'MeetingType'=>$form->createView()
+        ]);
+    }
 }

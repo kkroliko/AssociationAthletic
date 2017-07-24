@@ -54,6 +54,8 @@ $("#appbundle_tuto_mainTag").change(function() {
             break;
     }
 })
+
+/*************************************************Slider***************************************************************/
 $(document).ready(function(){
     $('.slider3').bxSlider({
         slideWidth: 1000,
@@ -61,6 +63,9 @@ $(document).ready(function(){
         maxSlides: 4,
         slideMargin: 10
     });
+    /******************************************************************************************************************/
+
+
 
     $(document).on("change", ".selectresult", function() {
         $selected = "#" + $(this).val();
