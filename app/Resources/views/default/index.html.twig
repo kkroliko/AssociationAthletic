@@ -98,7 +98,11 @@
                             <div class="flip-card-inner-back">
                                 <h3 class="flip-card-inner-back-title">Le 20/08/2017</h3>
                                 <p class="flip-card-inner-back-text">Course incroyable à la Corrida de Plouescat</p>
+                                {% if app.user %}
                                 <a href="{{ path('courseregister') }}" class="button success">S'inscrire à la course</a>
+                                {% else %}
+                                <a href="{{ path('fos_user_security_login') }}" class="button success" >S'inscrire à la course</a>
+                                {% endif %}
                             </div>
                         </div>
                     </div>
@@ -112,7 +116,11 @@
                         <div class="flip-card-inner-back">
                             <h3 class="flip-card-inner-back-title">Le 22/08/2017</h3>
                             <p class="flip-card-inner-back-text">Course incroyable au Trail du Tertre Gris</p>
+                            {% if app.user %}
                             <a href="{{ path('courseregister') }}" class="button success">S'inscrire à la course</a>
+                            {% else %}
+                            <a href="{{ path('fos_user_security_login') }}" class="button success" >S'inscrire à la course</a>
+                            {% endif %}
                         </div>
                     </div>
                 </div>
@@ -126,7 +134,11 @@
                         <div class="flip-card-inner-back">
                             <h3 class="flip-card-inner-back-title">Le 29/08/2017</h3>
                             <p class="flip-card-inner-back-text">Course magique dans la Forêt Fouesnant</p>
+                            {% if app.user %}
                             <a href="{{ path('courseregister') }}" class="button success">S'inscrire à la course</a>
+                            {% else %}
+                            <a href="{{ path('fos_user_security_login') }}" class="button success" >S'inscrire à la course</a>
+                            {% endif %}
                         </div>
                     </div>
                 </div>
@@ -140,7 +152,11 @@
                         <div class="flip-card-inner-back">
                             <h3 class="flip-card-inner-back-title">Le 02/09/2017</h3>
                             <p class="flip-card-inner-back-text">Course stupéfiante au Trail du Bout du Monde</p>
+                            {% if app.user %}
                             <a href="{{ path('courseregister') }}" class="button success">S'inscrire à la course</a>
+                            {% else %}
+                            <a href="{{ path('fos_user_security_login') }}" class="button success" >S'inscrire à la course</a>
+                            {% endif %}
                         </div>
                     </div>
                 </div>
@@ -154,7 +170,11 @@
                         <div class="flip-card-inner-back">
                             <h3 class="flip-card-inner-back-title">Le 10/09/2017</h3>
                             <p class="flip-card-inner-back-text">Course extraordinaire à la FOulées ercéennes</p>
+                            {% if app.user %}
                             <a href="{{ path('courseregister') }}" class="button success">S'inscrire à la course</a>
+                            {% else %}
+                            <a href="{{ path('fos_user_security_login') }}" class="button success" >S'inscrire à la course</a>
+                            {% endif %}
                         </div>
                     </div>
                 </div>
