@@ -31,13 +31,17 @@ class CourseController extends Controller
         $results_meetings = $query_results->getResult();
 
 
+
+
+
+
+
         return $this->render('result.html.twig',['results'=>$results_meetings, 'meetings'=>$finished_meetings]);
-
     }
-
     /**
      * @Route("/classement", name="classement")
      */
+
     public function ClassementAction(Request $request)
     {
         $em = $this->getDoctrine()->getManager();
@@ -49,7 +53,6 @@ class CourseController extends Controller
         $resultat=$toto->fetchAll();
         return $this->render('classement.html.twig' , ['classement'=>$resultat]);
     }
-
 
     /**
      * @route("/newcourse/", name="newcourse")
@@ -104,10 +107,7 @@ class CourseController extends Controller
         $query_results = $em->createQuery('SELECT r FROM AppBundle:Result r ORDER by r.points DESC');
         $results_meetings = $query_results->getResult();
 
-
         return $this->render('inscriptioncourse.html.twig',['meetings'=>$finished_meetings]);
-
-
     }
     /**
      * @Route("/inscriptioncourse/{id}", name="courseregistered")

@@ -1,52 +1,42 @@
 {% extends 'base.html.twig' %}
 
 {% block main %}
-
+<h1>Resultats des courses</h1>
     <select class="selectresult"name="select" size="1">
         <option value="0">Veuillez selectionner une course</option>
         {% for meeting in meetings %}
-            <option value={{ meeting.id }}>{{ meeting.name }}</option>
+            <option value={{ meeting.id }}>{{ meeting.name }}&nbsp;{{ meeting.date|date('d-m-Y') }}</option>
         {% endfor %}
     </select>
-        <div class="row">
+    <div class="row">
     {% for meeting in meetings %}
+        <div id="{{ meeting.id }}" class="table" style="overflow-x:auto;">
+            <table>
+                <tr>
+                    <th width="200">Prenom</th>
+                    <th width="200">Nom</th>
+                    <th width="150">Temps</th>
+                    <th width="150">Points</th>
+                </tr>
 
-    <div id="{{ meeting.id }}" class="table hidden" style="overflow-x:auto;">
-
-        <table>
-            <tr>
-                <th width="200">Prenom</th>
-                <th width="200">Nom</th>
-                <th width="150">Temps</th>
-                <th width="150">Points</th>
-
-
-
-            </tr>
-
-            {% for result in results if result.meeting.id == meeting.id %}
+        {% for result in results if result.meeting.id == meeting.id %}
 
                 <tr>
+                    <td class="hidden" id="athleteid">{{ result.athlete.id }}</td>
+                    <td class="hidden" id="meetingyear">{{ result.meeting.date|date('Y') }}</td>
+                    <td class="hidden" id="athleteyear">{{ result.athlete.birthdate }}</td>
                     <td>{{ result.athlete.firstname }}</td>
                     <td>{{ result.athlete.lastname }}</td>
-                    {% if is_granted('ROLE_ADMIN') %}
-                        <td><input class="time" type="text"><input type="submit"></td>
-                        <td><input type="text"></td>
-
-                    {% else %}
-                    <td>{{ result.time }}</td>
-                    <td>{{ result.points }}</td>
+                    <td><form method="post" id="{{ result.athlete.id }}" class="resultForm"><input type="text" id="time{{ result.athlete.id }}" placeholder={{ result.time }}><input id="time" type="button"></form></td>
+                    <td id="point{{ result.athlete.id }}"></td>
                 </tr>
-            {% endif %}
-            {% endfor %}
 
-        </table>
-
-    </div>
+        {% endfor %}
+            </table>
         </div>
+    </div>
+
     {% endfor %}
-
-
 
 {% endblock %}
 

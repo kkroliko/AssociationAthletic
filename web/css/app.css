@@ -1,34 +1,8 @@
-body, html {
-    width: 100%;
-    height: 100%;
-}
-.lico{
-
-    color:blue;
-}
-.bg
-{
-    background-image: url("../img/bg.jpg");
-    background-size: cover;
-    filter: blur(0px);
-    z-index: -1;
-    position: fixed;
-    top: 0;
-    left: 0;
-    height: 100%;
-    width: 100%;
-}
 /*********************************************Inscription**************************************************************/
 #Row{
     text-align: center;
     padding-top: 30px;
 }
-
-/**********************************************************************************************************************/
-
-/*****************************************************Connection*******************************************************/
-
-
 /******************************************************Flip card*******************************************************/
 .flip-card
 {
@@ -111,7 +85,7 @@ body, html {
   -ms-flex-direction: column;
   flex-direction: column;
   text-align: center;
-  background: #cacaca;
+  background: darkolivegreen;
   padding: 1rem;
 
 }
@@ -136,24 +110,6 @@ body, html {
 #f5 .flip-card-inner-front {
     background: url(../img/fc5.jpg) 0 0 no-repeat;
 }
-/**********************************************************************************************************************/
-
-
-
-h1,h3{
-    text-align: center;
-}
-footer{
-
-    text-align: right;
-}
-
-
-th, td {
-    border: none;
-    text-align: left;
-    padding: 8px;
-}
 /******************************************************Slider**********************************************************/
 
 .fullscreen-image-slider .orbit-caption {
@@ -161,21 +117,48 @@ th, td {
     -webkit-transform: translateY(50%);
     -ms-transform: translateY(50%);
     transform: translateY(50%);
-
 }
-/**********************************************************************************************************************/
-.table
-{
+/*****************************************************Autre************************************************************/
+body, html{
+    width: 100%;
+    height: 100%;
+}
+.bg{
+    background-image: url("../img/bg.jpg");
+    background-size: cover;
+    filter: blur(0px);
+    z-index: -1;
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+}
+
+h1,h2,h3,p{
+    text-align: center;
+}
+footer{
+
+    text-align: right;
+}
+th, td {
+    border: none;
+    text-align: left;
+    padding: 8px;
+}
+.table{
     padding-top: 5vh;
 }
-
-h1
-{
+h1{
   background: white;
 }
-.hidden {
+.hidden{
     display: none;
 }
 .menu{
     text-decoration: none;
 }
+.hiddens{
+     display: none;
+ }

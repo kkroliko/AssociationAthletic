@@ -2,7 +2,7 @@
 
 {% block main %}
 
-
+<h1>Inscription à la course</h1>
     <div id="test" class="container">
         <div class="card-panel">
             <div class="row" id="Row">
@@ -10,7 +10,7 @@
                     <div class="card" style="background-color:#F5F7F8 ">
                         <div class="card-content grey-text">
                             {{ form_start(AtheteType) }}
-                            {{ form_widget(AtheteType) }}
+                            {{ form_widget(AtheteType.Firstname) }}
                             {{ form_end(AtheteType) }}
                         </div>
                     </div>
