@@ -29,11 +29,30 @@ class CourseController extends Controller
 
         $query_results = $em->createQuery('SELECT r FROM AppBundle:Result r ORDER by r.points DESC');
         $results_meetings = $query_results->getResult();
-
-
-
-
-
+        if ($request->isXmlHttpRequest()){
+            $time=$request->get('time');
+            $points=$request->get('points');
+            $athleteid=$request->get('athleteid');
+            $meetingid=$request->get('meetingid');
+            /* call doctrine */
+            $em = $this->getDoctrine()->getManager();
+            /* get the object meeting*/
+            $meeting = $em->getRepository("AppBundle:Meeting");
+            $meetingObject= $meeting->findOneBy(array('id'=> $meetingid));
+            /*get the object athlete*/
+            $runner=$em->getRepository("AppBundle:Athlete");
+            $athleteObject=$runner->findOneBy(array('id'=>$athleteid));
+            /*get the line that contain both data */
+            $resultTable=$em->getRepository(Result::class);
+            $result=$resultTable->findOneBy(array('athlete'=>$athleteObject,'meeting'=>$meetingObject));
+            /*Update the information to BDD*/
+            $result->setAthlete($athleteObject);
+            $result->setPoints($points);
+            $result->setMeeting($meetingObject);
+            $result->setTime($time);
+            $em->persist($result);
+            $em->flush();
+        }
 
 
         return $this->render('result.html.twig',['results'=>$results_meetings, 'meetings'=>$finished_meetings]);
@@ -114,6 +133,12 @@ class CourseController extends Controller
      */
     public function inscriptionCourseConfirmationAction(Request $request, $id)
     {
+        $em = $this->getDoctrine()->getManager();
+
+        $finished_meetings = $this->getDoctrine()->getRepository(Meeting::class)->findAll();
+
+        $query_results = $em->createQuery('SELECT r FROM AppBundle:Result r ORDER by r.points DESC');
+        $results_meetings = $query_results->getResult();
         $coureur = new Athlete();
         $form = $this ->createForm(AthleteType::class, $coureur);
         $form->handleRequest($request);
@@ -144,5 +169,6 @@ class CourseController extends Controller
             'AtheteType'=>$form->createView()
         ]);
     }
+
 
 }

@@ -22,15 +22,22 @@
         {% for result in results if result.meeting.id == meeting.id %}
 
                 <tr>
+                    {% if is_granted('ROLE_ADMIN') %}
                     <td class="hidden" id="athleteid">{{ result.athlete.id }}</td>
                     <td class="hidden" id="meetingyear">{{ result.meeting.date|date('Y') }}</td>
                     <td class="hidden" id="athleteyear">{{ result.athlete.birthdate }}</td>
+                    <td class="hidden" id="meetingid">{{ result.meeting.id }}</td>
                     <td>{{ result.athlete.firstname }}</td>
                     <td>{{ result.athlete.lastname }}</td>
-                    <td><form method="post" id="{{ result.athlete.id }}" class="resultForm"><input type="text" id="time{{ result.athlete.id }}" placeholder={{ result.time }}><input id="time" type="button"></form></td>
+                    <td><form method="POST" id="{{ result.athlete.id }}" class="resultForm"><input type="text" id="time{{ result.athlete.id }}" placeholder={{ result.time }}><input id="time" type="button"></form></td>
                     <td id="point{{ result.athlete.id }}"></td>
+                    {% else %}
+                    <td>{{ result.athlete.firstname }}</td>
+                    <td>{{ result.athlete.lastname }}</td>
+                    <td>{{ result.time }}</td>
+                    <td>{{ result.points }}</td>
                 </tr>
-
+                    {% endif %}
         {% endfor %}
             </table>
         </div>
