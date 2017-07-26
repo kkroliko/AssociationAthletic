@@ -166,9 +166,19 @@ class CourseController extends Controller
             return $this->render('default/index.html.twig');
         }
         return $this->render('newathlete.html.twig', [
-            'AtheteType'=>$form->createView()
+            'AthleteType'=>$form->createView()
         ]);
     }
 
+    public function nextcourseAction(Request $request)
+    {
+        $em = $this->getDoctrine()->getManager();
 
+        $query_meetings = $em->createQuery('SELECT m
+                                            FROM AppBundle:Meeting m
+                                            WHERE m.date > :now
+                                           ')->setParameter("now", new DateTime("NOW"), Type::DATETIME);
+        $finished_meetings = $query_meetings->getResult();
+        return $this->render('nextcourse.html.twig', [ 'NextCourse'=>$finished_meetings]);
+    }
 }

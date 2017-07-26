@@ -1,0 +1,22 @@
+{% for meeting in NextCourse  %}
+
+<div class="large-4 small-12 column" id="f1">
+    <div class="flip-card card" ontouchstart="this.classList.toggle('hover');">
+        <div class="flip-card-inner">
+            <div class="flip-card-inner-front">
+                <span>{{ meeting.name }}</span>
+            </div>
+            <div class="flip-card-inner-back">
+                <h3 class="flip-card-inner-back-title">{{ meeting.date|date('d-m-Y') }}</h3>
+                <p class="flip-card-inner-back-text">{{ meeting.description }}</p>
+                {% if app.user %}
+                    <a href="{{ path('courseregister') }}" class="button success">S'inscrire à la course</a>
+                {% else %}
+                    <a href="{{ path('fos_user_security_login') }}" class="button success" >S'inscrire à la course</a>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endfor %}
