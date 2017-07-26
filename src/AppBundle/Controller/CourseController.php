@@ -34,12 +34,12 @@ class CourseController extends Controller
             $points=$request->get('points');
             $athleteid=$request->get('athleteid');
             $meetingid=$request->get('meetingid');
-            /* call doctrine */
+            /* appel doctrine */
             $em = $this->getDoctrine()->getManager();
-            /* get the object meeting*/
+            /* recup l'objet du meeting*/
             $meeting = $em->getRepository("AppBundle:Meeting");
             $meetingObject= $meeting->findOneBy(array('id'=> $meetingid));
-            /*get the object athlete*/
+            /*prendre l'objet de athlete*/
             $runner=$em->getRepository("AppBundle:Athlete");
             $athleteObject=$runner->findOneBy(array('id'=>$athleteid));
             /*get the line that contain both data */
@@ -107,7 +107,7 @@ class CourseController extends Controller
             return $this->render('default/index.html.twig');
         }
         return $this->render('newathlete.html.twig', [
-            'AtheteType'=>$form->createView()
+            'AthleteType'=>$form->createView()
         ]);
     }
     /**
