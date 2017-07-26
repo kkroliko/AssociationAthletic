@@ -1,15 +1,4 @@
-
-/*************************************************Slider***************************************************************/
-$(document).ready(function() {
-    $('.slider3').bxSlider({
-        slideWidth: 1000,
-        minSlides: 2,
-        maxSlides: 4,
-        slideMargin: 10
-    });
-    /******************************************************************************************************************/
-
-    /******************************************************Affichage course********************************************/
+/******************************************************Affichage course************************************************/
 
 
     $(document).on("change", ".selectresult", function () {
@@ -27,18 +16,20 @@ $(document).ready(function() {
     });
     /******************************************************************************************************************/
 
-    /************************************************************calcul js*************************************************/
+    /************************************************************calcul js**********************************************/
     $(document).on("click", ".resultForm", function () {
-        var meetingid = document.getElementById('meetingid').innerHTML;
-        var meeting = document.getElementById('meetingyear').innerHTML;
-        var athlete = document.getElementById('athleteyear').innerHTML;
-        var athleteid = document.getElementById('athleteid').innerHTML;
-        console.log(meeting);
-        console.log(athlete);
+
         var id = $(this).attr("id");
-        var age = meeting - athlete;
-        console.log(age);
+        var meetingid = $(this).parent().attr("id");
+        console.log(meetingid);
+
+        var meetingyear = document.getElementById('meetingyear'+meetingid).innerHTML;
+
+        var athleteyear = document.getElementById('athleteyear'+id).innerHTML;
+
+        var age = meetingyear - athleteyear;
         var coeff;
+
         if (age <= 11) {
             coeff = 1.5;
         } else if (age <= 13) {
@@ -56,17 +47,17 @@ $(document).ready(function() {
         } else {
             coeff = 1.35;
         }
-        var time = document.getElementById("time" + id).value;
+        var time = document.getElementById("time" + id +"#" + meetingid).value;
         console.log(time);
         var points = Math.round((1000 / time) * coeff);
-        document.getElementById("point" + id).innerHTML = points;
+        document.getElementById("point" + id +"#" + meetingid).innerHTML = points;
         $.ajax({
 
             url: '',
             type: 'POST',
-            data:{time : time, points:points, athleteid: athleteid, meetingid: meetingid}
+            data:{time : time, points:points, athleteid: id, meetingid: meetingid}
     });
 
 });
 
-});
+
